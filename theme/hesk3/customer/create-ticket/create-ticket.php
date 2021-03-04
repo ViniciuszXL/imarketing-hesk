@@ -239,74 +239,8 @@ require_once(TEMPLATE_PATH . 'customer/util/custom-fields.php');
                             </div>
                         </section>
                         <div class="divider"></div>
-                        <?php
-                    endif;
-
-                    if ($hesk_settings['question_use'] || ($hesk_settings['secimg_use'] && $hesk_settings['recaptcha_use'] !== 1)):
-                    ?>
-                    <div class="captcha-block">
-                        <h3><?php echo $hesklang['verify_header']; ?></h3>
-
-                        <?php if ($hesk_settings['question_use']): ?>
-                        <div class="form-group">
-                            <label class="required"><?php echo $hesk_settings['question_ask']; ?></label>
-                            <?php
-                            $value = '';
-                            if (isset($_SESSION['c_question']))
-                            {
-                                $value = stripslashes(hesk_input($_SESSION['c_question']));
-                            }
-                            ?>
-                            <input type="text" class="form-control <?php echo in_array('question',$_SESSION['iserror']) ? 'isError' : ''; ?>"
-                                   name="question" size="20" value="<?php echo $value; ?>">
-                        </div>
-                        <?php
-                            endif;
-
-                            if ($hesk_settings['secimg_use'] && $hesk_settings['recaptcha_use'] != 1)
-                            {
-                                ?>
-                                <div class="form-group">
-                                    <?php
-                                    // SPAM prevention verified for this session
-                                    if (isset($_SESSION['img_verified']))
-                                    {
-                                        echo $hesklang['vrfy'];
-                                    }
-                                    // Use reCAPTCHA V2?
-                                    elseif ($hesk_settings['recaptcha_use'] == 2)
-                                    {
-                                        ?>
-                                        <div class="g-recaptcha" data-sitekey="<?php echo $hesk_settings['recaptcha_public_key']; ?>"></div>
-                                        <?php
-                                    }
-                                    // At least use some basic PHP generated image (better than nothing)
-                                    else
-                                    {
-                                        $cls = in_array('mysecnum',$_SESSION['iserror']) ? 'isError' : '';
-                                        ?>
-                                        <img name="secimg" src="print_sec_img.php?<?php echo rand(10000,99999); ?>" width="150" height="40" alt="<?php echo $hesklang['sec_img']; ?>" title="<?php echo $hesklang['sec_img']; ?>" style="vertical-align:text-bottom">
-                                        <a class="btn btn-refresh" href="javascript:void(0)" onclick="javascript:document.form1.secimg.src='print_sec_img.php?'+ ( Math.floor((90000)*Math.random()) + 10000);">
-                                            <svg class="icon icon-refresh">
-                                                <use xlink:href="<?php echo TEMPLATE_PATH; ?>customer/img/sprite.svg#icon-refresh"></use>
-                                            </svg>
-                                        </a>
-                                        <label class="required"><?php echo $hesklang['sec_enter']; ?></label>
-                                        <input type="text" name="mysecnum" size="20" maxlength="5" class="form-control <?php echo $cls; ?>">
-                                    <?php
-                                    }
-                                    ?>
-                                </div>
-                                <?php
-                            }
-                            ?>
-                    </div>
-                    <div class="divider"></div>
-                        <?php
-                    endif;
-
-                    if ($hesk_settings['submit_notice']):
-                    ?>
+                        <?php endif; ?>
+                        <?php if ($hesk_settings['submit_notice']): ?>
                     <div class="alert">
                         <div class="alert__inner">
                             <b class="font-weight-bold"><?php echo $hesklang['before_submit']; ?>:</b>
