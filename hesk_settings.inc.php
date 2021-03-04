@@ -7,7 +7,7 @@
 $hesk_settings['site_title']='IMarketing';
 $hesk_settings['site_url']='http://localhost';
 $hesk_settings['hesk_title']='Help Desk';
-$hesk_settings['hesk_url']='http://localhost/teste/helpdesk';
+$hesk_settings['hesk_url']='http://localhost/imarketing-hesk';
 $hesk_settings['webmaster_mail']='support@example.com';
 $hesk_settings['noreply_mail']='support@example.com';
 $hesk_settings['noreply_name']='Help Desk';
@@ -64,20 +64,20 @@ $hesk_settings['spam_notice']=0;
 $hesk_settings['list_users']=0;
 $hesk_settings['debug_mode']=0;
 $hesk_settings['short_link']=0;
-$hesk_settings['select_cat']=0;
+$hesk_settings['select_cat']=1;
 $hesk_settings['select_pri']=0;
 $hesk_settings['cat_show_select']=15;
 $hesk_settings['staff_ticket_formatting']=0;
 
 // --> SPAM Prevention
 $hesk_settings['secimg_use']=0;
-$hesk_settings['secimg_sum']='AJE7AD7U14';
+$hesk_settings['secimg_sum']='VLHH27GWJR';
 $hesk_settings['recaptcha_use']=0;
 $hesk_settings['recaptcha_public_key']='';
 $hesk_settings['recaptcha_private_key']='';
 $hesk_settings['question_use']=0;
-$hesk_settings['question_ask']='Which number is higher <b>2</b> or <b>8</b>:';
-$hesk_settings['question_ans']='8';
+$hesk_settings['question_ask']='Type <i>YYT75</i> here to fight SPAM:';
+$hesk_settings['question_ans']='YYT75';
 
 // --> Security
 $hesk_settings['attempt_limit']=6;
@@ -88,12 +88,12 @@ $hesk_settings['email_view_ticket']=0;
 $hesk_settings['x_frame_opt']=1;
 $hesk_settings['samesite']='Lax';
 $hesk_settings['force_ssl']=0;
-$hesk_settings['url_key']='ASdDw6S3qybPWcSDk.BFCZMTv6tr';
+$hesk_settings['url_key']='DvdRp61EXTfhqyyqPZ4sSRx7z';
 
 // --> Attachments
 $hesk_settings['attachments']=array (
 'use' => 1,
-'max_number' => 10,
+'max_number' => 2,
 'max_size' => 20971520,
 'allowed_types' => array('.gif','.jpg','.png','.zip','.rar','.csv','.doc','.docx','.xls','.xlsx','.txt','.pdf')
 );

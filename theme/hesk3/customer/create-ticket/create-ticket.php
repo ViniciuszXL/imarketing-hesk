@@ -124,15 +124,6 @@ require_once(TEMPLATE_PATH . 'customer/util/custom-fields.php');
                             <label class="label required"><?php echo $hesklang['name']; ?>:</label>
                             <input type="text" name="name" class="form-control <?php if (in_array('name',$_SESSION['iserror'])) {echo 'isEerror';} ?>" maxlength="50" value="<?php if (isset($_SESSION['c_name'])) {echo stripslashes(hesk_input($_SESSION['c_name']));} ?>" required>
                         </div>
-                        <div class="form-group">
-                            <label class="label <?php if ($hesk_settings['require_email']) { ?>required<?php } ?>"><?php echo $hesklang['email']; ?>:</label>
-                            <input type="<?php echo $hesk_settings['multi_eml'] ? 'text' : 'email'; ?>"
-                                   class="form-control <?php if (in_array('email',$_SESSION['iserror'])) {echo 'isError';} elseif (in_array('email',$_SESSION['isnotice'])) {echo 'isNotice';} ?>"
-                                   name="email" id="email" maxlength="1000"
-                                   value="<?php if (isset($_SESSION['c_email'])) {echo stripslashes(hesk_input($_SESSION['c_email']));} ?>" <?php if($hesk_settings['detect_typos']) { echo ' onblur="HESK_FUNCTIONS.suggestEmail(\'email\', \'email_suggestions\', 0)"'; } ?>
-                                   <?php if ($hesk_settings['require_email']) { ?>required<?php } ?>>
-                            <div id="email_suggestions"></div>
-                        </div>
                         <?php if ($hesk_settings['confirm_email']): ?>
                             <div class="form-group">
                                 <label class="label <?php if ($hesk_settings['require_email']) { ?>required<?php } ?>"><?php echo $hesklang['confemail']; ?>:</label>
@@ -144,6 +135,15 @@ require_once(TEMPLATE_PATH . 'customer/util/custom-fields.php');
                             </div>
                         <?php endif; ?>
                     </section>
+					<div class="form-group">
+                           <label class="label <?php if ($hesk_settings['require_subject']) { ?>required<?php } ?>">
+                                <?php echo $hesklang['subject']; ?>:
+                            </label>
+                            <input type="text" class="form-control <?php if (in_array('subject',$_SESSION['iserror'])) {echo 'isError';} ?>"
+                                name="subject" maxlength="70"
+                                value="<?php if (isset($_SESSION['c_subject'])) {echo stripslashes(hesk_input($_SESSION['c_subject']));} ?>"
+                                <?php if ($hesk_settings['require_subject']) { ?>required<?php } ?>>
+                    </div>
                     <?php if ($hesk_settings['cust_urgency']): ?>
                         <section class="param">
                             <span class="label required"><?php echo $hesklang['priority']; ?>:</span>
@@ -175,19 +175,7 @@ require_once(TEMPLATE_PATH . 'customer/util/custom-fields.php');
 
                     if ($hesk_settings['require_subject'] != -1 || $hesk_settings['require_message'] != -1): ?>
                         <div class="divider"></div>
-                        <?php if ($hesk_settings['require_subject'] != -1): ?>
-                            <div class="form-group">
-                                <label class="label <?php if ($hesk_settings['require_subject']) { ?>required<?php } ?>">
-                                    <?php echo $hesklang['subject']; ?>:
-                                </label>
-                                <input type="text" class="form-control <?php if (in_array('subject',$_SESSION['iserror'])) {echo 'isError';} ?>"
-                                       name="subject" maxlength="70"
-                                       value="<?php if (isset($_SESSION['c_subject'])) {echo stripslashes(hesk_input($_SESSION['c_subject']));} ?>"
-                                       <?php if ($hesk_settings['require_subject']) { ?>required<?php } ?>>
-                            </div>
-                            <?php
-                        endif;
-                        if ($hesk_settings['require_message'] != -1): ?>
+                        <?php if ($hesk_settings['require_message'] != -1): ?>
                             <div class="form-group">
                                 <label class="label <?php if ($hesk_settings['require_message']) { ?>required<?php } ?>">
                                     <?php echo $hesklang['message']; ?>:

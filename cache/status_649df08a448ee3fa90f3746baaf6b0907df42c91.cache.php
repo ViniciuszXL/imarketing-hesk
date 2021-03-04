@@ -1,22 +1,22 @@
 <?php if (!defined('IN_SCRIPT')) {die();} $hesk_settings['statuses']=array (
   0 => 
   array (
-    'name' => 'New',
+    'name' => 'Novo',
     'class' => 'open',
   ),
   1 => 
   array (
-    'name' => 'Waiting reply',
+    'name' => 'Esperando resposta',
     'class' => 'waitingreply',
   ),
   2 => 
   array (
-    'name' => 'Replied',
+    'name' => 'Respondido',
     'class' => 'replied',
   ),
   3 => 
   array (
-    'name' => 'Resolved',
+    'name' => 'Resolvido',
     'class' => 'resolved',
   ),
   4 => 
