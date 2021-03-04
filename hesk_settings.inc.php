@@ -70,14 +70,14 @@ $hesk_settings['cat_show_select']=15;
 $hesk_settings['staff_ticket_formatting']=0;
 
 // --> SPAM Prevention
-$hesk_settings['secimg_use']=0;
+$hesk_settings['secimg_use']=1;
 $hesk_settings['secimg_sum']='VLHH27GWJR';
 $hesk_settings['recaptcha_use']=0;
 $hesk_settings['recaptcha_public_key']='';
 $hesk_settings['recaptcha_private_key']='';
 $hesk_settings['question_use']=0;
-$hesk_settings['question_ask']='Type <i>YYT75</i> here to fight SPAM:';
-$hesk_settings['question_ans']='YYT75';
+$hesk_settings['question_ask']='What color is water? (give a 1 word answer to show you are a human)';
+$hesk_settings['question_ans']='blue';
 
 // --> Security
 $hesk_settings['attempt_limit']=6;
@@ -88,7 +88,7 @@ $hesk_settings['email_view_ticket']=0;
 $hesk_settings['x_frame_opt']=1;
 $hesk_settings['samesite']='Lax';
 $hesk_settings['force_ssl']=0;
-$hesk_settings['url_key']='DvdRp61EXTfhqyyqPZ4sSRx7z';
+$hesk_settings['url_key']='zGc3E0psjRFQc4_291fuWC2s3G';
 
 // --> Attachments
 $hesk_settings['attachments']=array (

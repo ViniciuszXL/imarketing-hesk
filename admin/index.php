@@ -43,7 +43,7 @@ switch ($action)
 }
 
 /* Print footer */
-require_once(HESK_PATH . 'inc/footer.inc.php');
+//require_once(HESK_PATH . 'inc/footer.inc.php');
 exit();
 
 /*** START FUNCTIONS ***/
