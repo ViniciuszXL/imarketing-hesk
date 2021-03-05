@@ -70,7 +70,7 @@ require_once(HESK_PATH . 'inc/show_search_form.inc.php');
 <?php
 
 /* Print footer */
-require_once(HESK_PATH . 'inc/footer.inc.php');
+//require_once(HESK_PATH . 'inc/footer.inc.php');
 exit();
 
 ?>

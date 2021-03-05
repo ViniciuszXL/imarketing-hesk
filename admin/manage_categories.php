@@ -450,7 +450,7 @@ function initRenameCategoryModal($clickedElement) {
 </script>
 <?php
 hesk_cleanSessionVars('error');
-require_once(HESK_PATH . 'inc/footer.inc.php');
+//require_once(HESK_PATH . 'inc/footer.inc.php');
 exit();
 
 

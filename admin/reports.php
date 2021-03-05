@@ -357,7 +357,7 @@ switch ($type)
     	hesk_ticketsByDay();
 }
 
-require_once(HESK_PATH . 'inc/footer.inc.php');
+//require_once(HESK_PATH . 'inc/footer.inc.php');
 exit();
 
 

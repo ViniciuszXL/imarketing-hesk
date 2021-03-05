@@ -244,17 +244,7 @@ require_once(TEMPLATE_PATH . 'customer/util/rating.php');
                         </div>
                         <?php endif; ?>
                     </div>
-                    <div class="article__footer">
-                        <a href="knowledgebase.php" class="btn btn--blue-border" ripple="ripple"><?php echo $hesklang['viewkb']; ?></a>
-                    </div>
                 </article>
-                <?php
-                endif;
-                if ($hesk_settings['alink']):
-                ?>
-                <div class="article__footer">
-                    <a href="<?php echo $hesk_settings['admin_dir']; ?>/" class="link"><?php echo $hesklang['ap']; ?></a>
-                </div>
                 <?php endif; ?>
             </div>
         </div>

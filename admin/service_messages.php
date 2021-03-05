@@ -398,7 +398,7 @@ if ( isset($_SESSION['new_sm']) && ! isset($_SESSION['edit_sm']) )
 
 hesk_cleanSessionVars( array('new_sm', 'preview_sm', 'edit_sm') );
 
-require_once(HESK_PATH . 'inc/footer.inc.php');
+//require_once(HESK_PATH . 'inc/footer.inc.php');
 exit();
 
 

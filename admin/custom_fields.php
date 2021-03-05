@@ -782,7 +782,7 @@ function hesk_setRadioOptions() {
 <?php
 hesk_cleanSessionVars( array('new_cf', 'edit_cf') );
 
-require_once(HESK_PATH . 'inc/footer.inc.php');
+//require_once(HESK_PATH . 'inc/footer.inc.php');
 exit();
 
 /*** START FUNCTIONS ***/

@@ -21,12 +21,12 @@
   ),
   4 => 
   array (
-    'name' => 'In Progress',
+    'name' => 'Em progresso',
     'class' => 'inprogress',
   ),
   5 => 
   array (
-    'name' => 'On Hold',
+    'name' => 'Em espera',
     'class' => 'onhold',
   ),
 );

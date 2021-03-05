@@ -963,7 +963,7 @@ if ( ! isset($_SESSION['as_priority']))
 hesk_cleanSessionVars('iserror');
 hesk_cleanSessionVars('isnotice');
 
-require_once(HESK_PATH . 'inc/footer.inc.php');
+//require_once(HESK_PATH . 'inc/footer.inc.php');
 exit();
 
 
@@ -1069,6 +1069,6 @@ hesk_handle_messages();
 	hesk_cleanSessionVars('isnotice');
     hesk_cleanSessionVars('as_priority');
 
-	require_once(HESK_PATH . 'inc/footer.inc.php');
+	//require_once(HESK_PATH . 'inc/footer.inc.php');
 	exit();
 } // END print_select_category()

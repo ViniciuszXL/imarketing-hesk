@@ -1,1 +1,3 @@
 <!-- inserir um footer aqui -->
+
+<p class="text-center new-footer">Desenvolvido pela equipe de TI da iMarketing Agência Digital</p>

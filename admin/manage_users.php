@@ -469,7 +469,7 @@ EOC;
     </div>
 </div>
 <?php
-require_once(HESK_PATH . 'inc/footer.inc.php');
+//require_once(HESK_PATH . 'inc/footer.inc.php');
 exit();
 
 } // End else
@@ -604,7 +604,7 @@ function edit_user()
     </div>
 
 	<?php
-	require_once(HESK_PATH . 'inc/footer.inc.php');
+	//require_once(HESK_PATH . 'inc/footer.inc.php');
 	exit();
 } // End edit_user()
 

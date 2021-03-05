@@ -87,7 +87,7 @@ else
 	hesk_show_kb_category($catid);
 }
 
-require_once(HESK_PATH . 'inc/footer.inc.php');
+//require_once(HESK_PATH . 'inc/footer.inc.php');
 exit();
 
 

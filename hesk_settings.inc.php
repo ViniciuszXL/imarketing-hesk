@@ -70,14 +70,14 @@ $hesk_settings['cat_show_select']=15;
 $hesk_settings['staff_ticket_formatting']=0;
 
 // --> SPAM Prevention
-$hesk_settings['secimg_use']=1;
+$hesk_settings['secimg_use']=0;
 $hesk_settings['secimg_sum']='VLHH27GWJR';
 $hesk_settings['recaptcha_use']=0;
 $hesk_settings['recaptcha_public_key']='';
 $hesk_settings['recaptcha_private_key']='';
 $hesk_settings['question_use']=0;
-$hesk_settings['question_ask']='What color is water? (give a 1 word answer to show you are a human)';
-$hesk_settings['question_ans']='blue';
+$hesk_settings['question_ask']='Type <i>9MHSR</i> here to fight SPAM:';
+$hesk_settings['question_ans']='9MHSR';
 
 // --> Security
 $hesk_settings['attempt_limit']=6;
@@ -88,7 +88,7 @@ $hesk_settings['email_view_ticket']=0;
 $hesk_settings['x_frame_opt']=1;
 $hesk_settings['samesite']='Lax';
 $hesk_settings['force_ssl']=0;
-$hesk_settings['url_key']='zGc3E0psjRFQc4_291fuWC2s3G';
+$hesk_settings['url_key']='3Jz_1s342b1RXDWQZe_8FgT2F6544p';
 
 // --> Attachments
 $hesk_settings['attachments']=array (
@@ -200,8 +200,8 @@ $hesk_settings['ip_whois']='https://whois.domaintools.com/{IP}';
 $hesk_settings['maintenance_mode']=0;
 $hesk_settings['alink']=1;
 $hesk_settings['submit_notice']=0;
-$hesk_settings['online']=0;
-$hesk_settings['online_min']=10;
+$hesk_settings['online']=1;
+$hesk_settings['online_min']=4;
 $hesk_settings['check_updates']=1;
 
 
