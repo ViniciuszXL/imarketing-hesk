@@ -43,7 +43,7 @@ switch ($action)
 }
 
 /* Print footer */
-//require_once(HESK_PATH . 'inc/footer.inc.php');
+require_once(HESK_PATH . 'inc/footer.inc.php');
 exit();
 
 /*** START FUNCTIONS ***/
@@ -453,7 +453,7 @@ function print_login()
 	<?php
 	hesk_cleanSessionVars('a_iserror');
 
-    //require_once(HESK_PATH . 'inc/footer.inc.php');
+    require_once(HESK_PATH . 'inc/footer.inc.php');
     exit();
 } // End print_login()
 

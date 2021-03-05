@@ -445,7 +445,7 @@ hesk_handle_messages();
     </form>
 </div>
 <?php
-//require_once(HESK_PATH . 'inc/footer.inc.php');
+require_once(HESK_PATH . 'inc/footer.inc.php');
 exit();
 
 

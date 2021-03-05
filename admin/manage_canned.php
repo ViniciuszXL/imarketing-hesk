@@ -366,7 +366,7 @@ function displayAddTitle() {
 
 hesk_cleanSessionVars('canned');
 
-//require_once(HESK_PATH . 'inc/footer.inc.php');
+require_once(HESK_PATH . 'inc/footer.inc.php');
 exit();
 
 

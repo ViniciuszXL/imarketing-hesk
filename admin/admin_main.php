@@ -96,6 +96,6 @@ echo '</div>';
 /* Clean unneeded session variables */
 hesk_cleanSessionVars('hide');
 
-//require_once(HESK_PATH . 'inc/footer.inc.php');
+require_once(HESK_PATH . 'inc/footer.inc.php');
 exit();
 ?>

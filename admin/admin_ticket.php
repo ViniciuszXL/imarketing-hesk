@@ -1550,7 +1550,7 @@ hesk_cleanSessionVars('note_message');
 
 $hesk_settings['print_status_select_box_jquery'] = true;
 
-//require_once(HESK_PATH . 'inc/footer.inc.php');
+require_once(HESK_PATH . 'inc/footer.inc.php');
 
 
 /*** START FUNCTIONS ***/
@@ -1840,7 +1840,8 @@ function print_form()
         </div>
     </div>
 
-	<?php//require_once(HESK_PATH . 'inc/footer.inc.php'););
+	<?php
+	require_once(HESK_PATH . 'inc/footer.inc.php');
 	exit();
 } // End print_form()
 

@@ -328,5 +328,5 @@ hesk_cleanSessionVars('a_iserror');
 hesk_cleanSessionVars('img_a_verified');
 
 // Print footer
-//require_once(HESK_PATH . 'inc/footer.inc.php');
+require_once(HESK_PATH . 'inc/footer.inc.php');
 ?>

@@ -570,7 +570,7 @@ hesk_cleanSessionVars(array('hide','new_article','new_category','KB_CATEGORY','m
 <p>&nbsp;</p>
 
 <?php
-//require_once(HESK_PATH . 'inc/footer.inc.php');
+require_once(HESK_PATH . 'inc/footer.inc.php');
 exit();
 
 
@@ -689,7 +689,7 @@ function list_draft() {
 	/* Clean unneeded session variables */
 	hesk_cleanSessionVars(array('hide','manage_cat','edit_article'));
 
-    //require_once(HESK_PATH . 'inc/footer.inc.php');
+    require_once(HESK_PATH . 'inc/footer.inc.php');
     exit();
 } // END list_draft()
 
@@ -826,7 +826,7 @@ function list_private() {
 	/* Clean unneeded session variables */
 	hesk_cleanSessionVars(array('hide','manage_cat','edit_article'));
 
-    //require_once(HESK_PATH . 'inc/footer.inc.php');
+    require_once(HESK_PATH . 'inc/footer.inc.php');
     exit();
 } // END list_private()
 
@@ -1589,7 +1589,7 @@ function edit_article()
     /* Clean unneeded session variables */
     hesk_cleanSessionVars('edit_article');
 
-    //require_once(HESK_PATH . 'inc/footer.inc.php');
+    require_once(HESK_PATH . 'inc/footer.inc.php');
     exit();
 } // END edit_article()
 
@@ -1981,7 +1981,7 @@ function manage_category() {
 	/* Clean unneeded session variables */
 	hesk_cleanSessionVars(array('hide','manage_cat','edit_article'));
 
-    //require_once(HESK_PATH . 'inc/footer.inc.php');
+    require_once(HESK_PATH . 'inc/footer.inc.php');
     exit();
 } // END manage_category()
 

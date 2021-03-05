@@ -191,7 +191,7 @@ if (defined('WARN_PASSWORD'))
 <?php
 unset($_SESSION['new']['errors']);
 
-//require_once(HESK_PATH . 'inc/footer.inc.php');
+require_once(HESK_PATH . 'inc/footer.inc.php');
 exit();
 
 

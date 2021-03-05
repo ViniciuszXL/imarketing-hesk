@@ -4,7 +4,7 @@
 // ==> GENERAL
 
 // --> General settings
-$hesk_settings['site_title']='IMarketing';
+$hesk_settings['site_title']='Website';
 $hesk_settings['site_url']='http://localhost';
 $hesk_settings['hesk_title']='Help Desk';
 $hesk_settings['hesk_url']='http://localhost/imarketing-hesk';
@@ -27,7 +27,7 @@ $hesk_settings['db_host']='localhost';
 $hesk_settings['db_name']='helpdesk';
 $hesk_settings['db_user']='root';
 $hesk_settings['db_pass']='';
-$hesk_settings['db_pfix']='helpdesk';
+$hesk_settings['db_pfix']='hesk_';
 $hesk_settings['db_vrsn']=1;
 
 
@@ -50,7 +50,7 @@ $hesk_settings['limit_width']=800;
 // --> Features
 $hesk_settings['autologin']=1;
 $hesk_settings['autoassign']=1;
-$hesk_settings['require_email']=0;
+$hesk_settings['require_email']=1;
 $hesk_settings['require_owner']=0;
 $hesk_settings['require_subject']=1;
 $hesk_settings['require_message']=1;
@@ -60,41 +60,41 @@ $hesk_settings['rating']=1;
 $hesk_settings['cust_urgency']=1;
 $hesk_settings['sequential']=1;
 $hesk_settings['time_worked']=1;
-$hesk_settings['spam_notice']=0;
+$hesk_settings['spam_notice']=1;
 $hesk_settings['list_users']=0;
 $hesk_settings['debug_mode']=0;
 $hesk_settings['short_link']=0;
-$hesk_settings['select_cat']=1;
+$hesk_settings['select_cat']=0;
 $hesk_settings['select_pri']=0;
 $hesk_settings['cat_show_select']=15;
 $hesk_settings['staff_ticket_formatting']=0;
 
 // --> SPAM Prevention
 $hesk_settings['secimg_use']=0;
-$hesk_settings['secimg_sum']='VLHH27GWJR';
+$hesk_settings['secimg_sum']='13N4BRS4WW';
 $hesk_settings['recaptcha_use']=0;
 $hesk_settings['recaptcha_public_key']='';
 $hesk_settings['recaptcha_private_key']='';
 $hesk_settings['question_use']=0;
-$hesk_settings['question_ask']='Type <i>9MHSR</i> here to fight SPAM:';
-$hesk_settings['question_ans']='9MHSR';
+$hesk_settings['question_ask']='Which of these is not an animal: gorilla, spider, earth';
+$hesk_settings['question_ans']='earth';
 
 // --> Security
 $hesk_settings['attempt_limit']=6;
-$hesk_settings['attempt_banmin']=5;
+$hesk_settings['attempt_banmin']=60;
 $hesk_settings['flood']=3;
 $hesk_settings['reset_pass']=1;
-$hesk_settings['email_view_ticket']=0;
+$hesk_settings['email_view_ticket']=1;
 $hesk_settings['x_frame_opt']=1;
 $hesk_settings['samesite']='Lax';
 $hesk_settings['force_ssl']=0;
-$hesk_settings['url_key']='3Jz_1s342b1RXDWQZe_8FgT2F6544p';
+$hesk_settings['url_key']='zjp6WCR4MwnAGgM6vrVUYjuSKhQB';
 
 // --> Attachments
 $hesk_settings['attachments']=array (
 'use' => 1,
 'max_number' => 2,
-'max_size' => 20971520,
+'max_size' => 2097152,
 'allowed_types' => array('.gif','.jpg','.png','.zip','.rar','.csv','.doc','.docx','.xls','.xlsx','.txt','.pdf')
 );
 
@@ -200,8 +200,8 @@ $hesk_settings['ip_whois']='https://whois.domaintools.com/{IP}';
 $hesk_settings['maintenance_mode']=0;
 $hesk_settings['alink']=1;
 $hesk_settings['submit_notice']=0;
-$hesk_settings['online']=1;
-$hesk_settings['online_min']=4;
+$hesk_settings['online']=0;
+$hesk_settings['online_min']=10;
 $hesk_settings['check_updates']=1;
 
 

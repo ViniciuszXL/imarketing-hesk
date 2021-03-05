@@ -72,5 +72,5 @@ hesk_show_notice(sprintf($hesklang['modules_demo'], '<a href="https://www.hesk.c
 </div>
 
 <?php
-//require_once(HESK_PATH . 'inc/footer.inc.php');
+require_once(HESK_PATH . 'inc/footer.inc.php');
 exit();

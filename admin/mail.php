@@ -181,7 +181,7 @@ function confirm_delete()
 hesk_cleanSessionVars('hide');
 hesk_cleanSessionVars('mail');
 
-//require_once(HESK_PATH . 'inc/footer.inc.php');
+require_once(HESK_PATH . 'inc/footer.inc.php');
 exit();
 
 

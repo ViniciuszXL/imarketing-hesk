@@ -4,7 +4,7 @@ a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, bo
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
 
-html, body { height: 100%; background-image: url('../../../../img/imarketing.png'); background-position: center; background-size: cover; }
+html, body { height: 100%; }
 
 body { display: -ms-flexbox; display: flex; -ms-flex-direction: column; flex-direction: column; }
 

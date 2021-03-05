@@ -217,6 +217,10 @@ require(TEMPLATE_PATH . 'customer/view-ticket/partial/add-reply.php');
                                     <div class="value"><?php echo hesk_date($ticket['lastchange'], true); ?></div>
                                 </div>
                                 <div class="row">
+                                    <div class="title"><?php echo $hesklang['last_replier']; ?>:</div>
+                                    <div class="value"><?php echo $ticket['repliername']; ?></div>
+                                </div>
+                                <div class="row">
                                     <div class="title"><?php echo $hesklang['category']; ?>:</div>
                                     <div class="value"><?php echo $category['name']; ?></div>
                                 </div>
