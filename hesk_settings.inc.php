@@ -4,9 +4,9 @@
 // ==> GENERAL
 
 // --> General settings
-$hesk_settings['site_title']='Website';
-$hesk_settings['site_url']='http://localhost';
-$hesk_settings['hesk_title']='Help Desk';
+$hesk_settings['site_title']='iMarketing - Help Desk';
+$hesk_settings['site_url']='http://imarketing.digital';
+$hesk_settings['hesk_title']='iMarketing - Help Desk';
 $hesk_settings['hesk_url']='http://localhost/imarketing-hesk';
 $hesk_settings['webmaster_mail']='support@example.com';
 $hesk_settings['noreply_mail']='support@example.com';
@@ -50,7 +50,7 @@ $hesk_settings['limit_width']=800;
 // --> Features
 $hesk_settings['autologin']=1;
 $hesk_settings['autoassign']=1;
-$hesk_settings['require_email']=1;
+$hesk_settings['require_email']=0;
 $hesk_settings['require_owner']=0;
 $hesk_settings['require_subject']=1;
 $hesk_settings['require_message']=1;
@@ -60,7 +60,7 @@ $hesk_settings['rating']=1;
 $hesk_settings['cust_urgency']=1;
 $hesk_settings['sequential']=1;
 $hesk_settings['time_worked']=1;
-$hesk_settings['spam_notice']=1;
+$hesk_settings['spam_notice']=0;
 $hesk_settings['list_users']=0;
 $hesk_settings['debug_mode']=0;
 $hesk_settings['short_link']=0;
@@ -71,7 +71,7 @@ $hesk_settings['staff_ticket_formatting']=0;
 
 // --> SPAM Prevention
 $hesk_settings['secimg_use']=0;
-$hesk_settings['secimg_sum']='13N4BRS4WW';
+$hesk_settings['secimg_sum']='E8QHSXH32A';
 $hesk_settings['recaptcha_use']=0;
 $hesk_settings['recaptcha_public_key']='';
 $hesk_settings['recaptcha_private_key']='';
@@ -84,7 +84,7 @@ $hesk_settings['attempt_limit']=6;
 $hesk_settings['attempt_banmin']=60;
 $hesk_settings['flood']=3;
 $hesk_settings['reset_pass']=1;
-$hesk_settings['email_view_ticket']=1;
+$hesk_settings['email_view_ticket']=0;
 $hesk_settings['x_frame_opt']=1;
 $hesk_settings['samesite']='Lax';
 $hesk_settings['force_ssl']=0;
