@@ -1,0 +1,49 @@
+# Versão do compose
+version: '3'
+
+# Volumes
+volumes:
+  mysql-data:
+
+# Redes
+networks:
+  banco:
+  web:
+
+# Serviços
+services:
+  # MariaDB
+  maria:
+    image: mariadb
+    environment: 
+      - MYSQL_ALLOW_EMPTY_PASSWORD=true
+    volumes:
+      # Volumes dos dados
+      - mysql-data:/var/lib/mysql
+    ports:
+      - 3306:3306
+    networks:
+      - banco
+  
+  # PHP
+  php:
+    image: php:7-fpm
+    volumes:
+      - ./web:/web
+    networks:
+      - web
+  
+  # Front-end
+  front:
+    image: nginx
+    volumes:
+      # Configuração do proxy reverso
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+
+      # Website
+      - ./web:/web
+    ports:
+      - 80:80
+    networks:
+      - web
+      - banco
