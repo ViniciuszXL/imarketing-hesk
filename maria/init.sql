@@ -24,16 +24,16 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `helpdesk`
+-- Banco de dados: `hesk_`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `helpdeskattachments`
+-- Estrutura da tabela `hesk_attachments`
 --
 
-CREATE TABLE `helpdeskattachments` (
+CREATE TABLE `hesk_attachments` (
   `att_id` mediumint(8) UNSIGNED NOT NULL,
   `ticket_id` varchar(13) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `saved_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -45,10 +45,10 @@ CREATE TABLE `helpdeskattachments` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `helpdeskbanned_emails`
+-- Estrutura da tabela `hesk_banned_emails`
 --
 
-CREATE TABLE `helpdeskbanned_emails` (
+CREATE TABLE `hesk_banned_emails` (
   `id` smallint(5) UNSIGNED NOT NULL,
   `email` varchar(255) NOT NULL,
   `banned_by` smallint(5) UNSIGNED NOT NULL,
@@ -58,10 +58,10 @@ CREATE TABLE `helpdeskbanned_emails` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `helpdeskbanned_ips`
+-- Estrutura da tabela `hesk_banned_ips`
 --
 
-CREATE TABLE `helpdeskbanned_ips` (
+CREATE TABLE `hesk_banned_ips` (
   `id` smallint(5) UNSIGNED NOT NULL,
   `ip_from` int(10) UNSIGNED NOT NULL DEFAULT 0,
   `ip_to` int(10) UNSIGNED NOT NULL DEFAULT 0,
@@ -73,10 +73,10 @@ CREATE TABLE `helpdeskbanned_ips` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `helpdeskcategories`
+-- Estrutura da tabela `hesk_categories`
 --
 
-CREATE TABLE `helpdeskcategories` (
+CREATE TABLE `hesk_categories` (
   `id` smallint(5) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `cat_order` smallint(5) UNSIGNED NOT NULL DEFAULT 0,
@@ -86,19 +86,19 @@ CREATE TABLE `helpdeskcategories` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Extraindo dados da tabela `helpdeskcategories`
+-- Extraindo dados da tabela `hesk_categories`
 --
 
-INSERT INTO `helpdeskcategories` (`id`, `name`, `cat_order`, `autoassign`, `type`, `priority`) VALUES
+INSERT INTO `hesk_categories` (`id`, `name`, `cat_order`, `autoassign`, `type`, `priority`) VALUES
 (1, 'General', 10, '1', '0', '3');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `helpdeskcustom_fields`
+-- Estrutura da tabela `hesk_custom_fields`
 --
 
-CREATE TABLE `helpdeskcustom_fields` (
+CREATE TABLE `hesk_custom_fields` (
   `id` tinyint(3) UNSIGNED NOT NULL,
   `use` enum('0','1','2') COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
   `place` enum('0','1') COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
@@ -111,10 +111,10 @@ CREATE TABLE `helpdeskcustom_fields` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Extraindo dados da tabela `helpdeskcustom_fields`
+-- Extraindo dados da tabela `hesk_custom_fields`
 --
 
-INSERT INTO `helpdeskcustom_fields` (`id`, `use`, `place`, `type`, `req`, `category`, `name`, `value`, `order`) VALUES
+INSERT INTO `hesk_custom_fields` (`id`, `use`, `place`, `type`, `req`, `category`, `name`, `value`, `order`) VALUES
 (1, '0', '0', 'text', '0', NULL, '', NULL, 1000),
 (2, '0', '0', 'text', '0', NULL, '', NULL, 1000),
 (3, '0', '0', 'text', '0', NULL, '', NULL, 1000),
@@ -169,10 +169,10 @@ INSERT INTO `helpdeskcustom_fields` (`id`, `use`, `place`, `type`, `req`, `categ
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `helpdeskcustom_statuses`
+-- Estrutura da tabela `hesk_custom_statuses`
 --
 
-CREATE TABLE `helpdeskcustom_statuses` (
+CREATE TABLE `hesk_custom_statuses` (
   `id` tinyint(3) UNSIGNED NOT NULL,
   `name` text COLLATE utf8_unicode_ci NOT NULL,
   `color` varchar(6) COLLATE utf8_unicode_ci NOT NULL,
@@ -183,10 +183,10 @@ CREATE TABLE `helpdeskcustom_statuses` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `helpdeskkb_articles`
+-- Estrutura da tabela `hesk_kb_articles`
 --
 
-CREATE TABLE `helpdeskkb_articles` (
+CREATE TABLE `hesk_kb_articles` (
   `id` smallint(5) UNSIGNED NOT NULL,
   `catid` smallint(5) UNSIGNED NOT NULL,
   `dt` timestamp NOT NULL DEFAULT current_timestamp(),
@@ -208,10 +208,10 @@ CREATE TABLE `helpdeskkb_articles` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `helpdeskkb_attachments`
+-- Estrutura da tabela `hesk_kb_attachments`
 --
 
-CREATE TABLE `helpdeskkb_attachments` (
+CREATE TABLE `hesk_kb_attachments` (
   `att_id` mediumint(8) UNSIGNED NOT NULL,
   `saved_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `real_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -221,10 +221,10 @@ CREATE TABLE `helpdeskkb_attachments` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `helpdeskkb_categories`
+-- Estrutura da tabela `hesk_kb_categories`
 --
 
-CREATE TABLE `helpdeskkb_categories` (
+CREATE TABLE `hesk_kb_categories` (
   `id` smallint(5) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `parent` smallint(5) UNSIGNED NOT NULL,
@@ -236,19 +236,19 @@ CREATE TABLE `helpdeskkb_categories` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Extraindo dados da tabela `helpdeskkb_categories`
+-- Extraindo dados da tabela `hesk_kb_categories`
 --
 
-INSERT INTO `helpdeskkb_categories` (`id`, `name`, `parent`, `articles`, `articles_private`, `articles_draft`, `cat_order`, `type`) VALUES
+INSERT INTO `hesk_kb_categories` (`id`, `name`, `parent`, `articles`, `articles_private`, `articles_draft`, `cat_order`, `type`) VALUES
 (1, 'Knowledgebase', 0, 0, 0, 0, 10, '0');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `helpdesklogins`
+-- Estrutura da tabela `hesk_logins`
 --
 
-CREATE TABLE `helpdesklogins` (
+CREATE TABLE `hesk_logins` (
   `ip` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
   `number` tinyint(3) UNSIGNED NOT NULL DEFAULT 1,
   `last_attempt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
@@ -257,10 +257,10 @@ CREATE TABLE `helpdesklogins` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `helpdesklog_overdue`
+-- Estrutura da tabela `hesk_log_overdue`
 --
 
-CREATE TABLE `helpdesklog_overdue` (
+CREATE TABLE `hesk_log_overdue` (
   `id` int(10) UNSIGNED NOT NULL,
   `dt` timestamp NOT NULL DEFAULT current_timestamp(),
   `ticket` mediumint(8) UNSIGNED NOT NULL,
@@ -275,10 +275,10 @@ CREATE TABLE `helpdesklog_overdue` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `helpdeskmail`
+-- Estrutura da tabela `hesk_mail`
 --
 
-CREATE TABLE `helpdeskmail` (
+CREATE TABLE `hesk_mail` (
   `id` int(10) UNSIGNED NOT NULL,
   `from` smallint(5) UNSIGNED NOT NULL,
   `to` smallint(5) UNSIGNED NOT NULL,
@@ -290,19 +290,19 @@ CREATE TABLE `helpdeskmail` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Extraindo dados da tabela `helpdeskmail`
+-- Extraindo dados da tabela `hesk_mail`
 --
 
-INSERT INTO `helpdeskmail` (`id`, `from`, `to`, `subject`, `message`, `dt`, `read`, `deletedby`) VALUES
+INSERT INTO `hesk_mail` (`id`, `from`, `to`, `subject`, `message`, `dt`, `read`, `deletedby`) VALUES
 (1, 9999, 1, 'HESK quick start guide', '</p><div style=\"text-align:justify; padding-left: 10px; padding-right: 10px;\">\r\n\r\n<p>&nbsp;<br /><b>Welcome to HESK! You\'ll find it is a great tool for improving your customer support.</b></p>\r\n\r\n<p><b>Here is a short guide to get you started.</b><br />&nbsp;</p>\r\n\r\n<hr />\r\nSTEP #1: set up your profile\r\n<hr />\r\n<ol>\r\n<li>go to <a href=\"profile.php\">Profile</a>,</li>\r\n<li>set your name and email address.</li>\r\n</ol>\r\n\r\n&nbsp;\r\n\r\n<hr />\r\nSTEP #2: configure HESK\r\n<hr />\r\n<ol>\r\n<li>go to <a href=\"admin_settings_general.php\">Settings</a>,</li>\r\n<li>for a quick start, just modify these on the \"General\" tab:<br /><br />\r\nWebsite title<br />\r\nWebsite URL<br />\r\nWebmaster email<br />&nbsp;\r\n</li>\r\n<li>you can come back to the settings page later and explore all the options. To view details about a setting, click the [?]</li>\r\n</ol>\r\n\r\n&nbsp;\r\n\r\n<hr />\r\nSTEP #3: add ticket categories\r\n<hr />\r\n<p>Go to <a href=\"manage_categories.php\">Categories</a> to add ticket categories.</p>\r\n<p>You cannot delete the default category, but you can rename it.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<hr />\r\nSTEP #4: add staff accounts\r\n<hr />\r\n<p>Go to <a href=\"manage_users.php\">Team</a> to create new staff accounts.</p>\r\n<p>You can use two user types in HESK:</p>\r\n<ul>\r\n<li><b>Administrators</b>, who have full access to all HESK features</li>\r\n<li><b>Staff</b>, who have access to limited privileges and categories</li>\r\n</ul>\r\n\r\n&nbsp;\r\n\r\n<hr />\r\nSTEP #5: useful tools\r\n<hr />\r\n<p>You can do a lot on the <a href=\"banned_emails.php\">Tools</a> page, for example:</p>\r\n<ul>\r\n<li>create custom ticket statuses,</li>\r\n<li>add custom input fields to the \"Submit a ticket\" form,</li>\r\n<li>modify email templates,</li>\r\n<li>and more.</li>\r\n</ul>\r\n\r\n&nbsp;\r\n\r\n<hr />\r\nSTEP #6: create a knowledgebase\r\n<hr />\r\n<p>A clear and comprehensive knowledgebase can drastically reduce the number of support tickets you receive, thereby saving you significant time and effort in the long run.</p>\r\n<p>Go to <a href=\"manage_knowledgebase.php\">Knowledgebase</a> to create categories and write articles for your knowledgebase.</p>\r\n\r\n&nbsp;\r\n\r\n<hr />\r\nSTEP #7: don\'t repeat yourself\r\n<hr />\r\n<p>Sometimes several support tickets are addressing the same issues - allowing you to use pre-written (&quot;canned&quot;) responses.</p>\r\n<p>To compose canned responses go to <a href=\"manage_canned.php\">Canned</a> page.</p>\r\n\r\n&nbsp;\r\n\r\n<hr />\r\nSTEP #8: secure your help desk\r\n<hr />\r\n<p>Make sure your help desk is as secure as possible by going through <a href=\"https://www.hesk.com/knowledgebase/?article=82\">HESK security check list</a></p>\r\n\r\n&nbsp;\r\n\r\n<hr />\r\nSTEP #9: stay updated\r\n<hr />\r\n<p>HESK regularly receives improvements and bug fixes; make sure you know about them!</p>\r\n<ul>\r\n<li>for fast notifications, <a href=\"https://twitter.com/HESKdotCOM\">follow us on <b>Twitter</b></a></li>\r\n<li>for email notifications, subscribe to our low-volume zero-spam <a href=\"https://www.hesk.com/newsletter.php\">newsletter</a></li>\r\n</ul>\r\n\r\n&nbsp;\r\n\r\n<hr />\r\nSTEP #10: look professional\r\n<hr />\r\n<p>To look more professional and not advertise the tools you use, <a href=\"https://www.hesk.com/buy.php\">remove &quot;Powered by&quot; links</a> from your help desk.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Again, welcome to HESK and enjoy using it!</p>\r\n\r\n<p>Klemen<br />\r\n<a href=\"https://www.hesk.com\">https://www.hesk.com</a></p>\r\n\r\n</div><p>', '2021-03-04 17:26:40', '0', 9999);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `helpdesknotes`
+-- Estrutura da tabela `hesk_notes`
 --
 
-CREATE TABLE `helpdesknotes` (
+CREATE TABLE `hesk_notes` (
   `id` mediumint(8) UNSIGNED NOT NULL,
   `ticket` mediumint(8) UNSIGNED NOT NULL,
   `who` smallint(5) UNSIGNED NOT NULL,
@@ -314,10 +314,10 @@ CREATE TABLE `helpdesknotes` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `helpdeskonline`
+-- Estrutura da tabela `hesk_online`
 --
 
-CREATE TABLE `helpdeskonline` (
+CREATE TABLE `hesk_online` (
   `user_id` smallint(5) UNSIGNED NOT NULL,
   `dt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `tmp` int(11) UNSIGNED NOT NULL DEFAULT 0
@@ -326,10 +326,10 @@ CREATE TABLE `helpdeskonline` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `helpdeskpipe_loops`
+-- Estrutura da tabela `hesk_pipe_loops`
 --
 
-CREATE TABLE `helpdeskpipe_loops` (
+CREATE TABLE `hesk_pipe_loops` (
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `hits` smallint(1) UNSIGNED NOT NULL DEFAULT 0,
   `message_hash` char(32) COLLATE utf8_unicode_ci NOT NULL,
@@ -339,10 +339,10 @@ CREATE TABLE `helpdeskpipe_loops` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `helpdeskreplies`
+-- Estrutura da tabela `hesk_replies`
 --
 
-CREATE TABLE `helpdeskreplies` (
+CREATE TABLE `hesk_replies` (
   `id` mediumint(8) UNSIGNED NOT NULL,
   `replyto` mediumint(8) UNSIGNED NOT NULL DEFAULT 0,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -358,10 +358,10 @@ CREATE TABLE `helpdeskreplies` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `helpdeskreply_drafts`
+-- Estrutura da tabela `hesk_reply_drafts`
 --
 
-CREATE TABLE `helpdeskreply_drafts` (
+CREATE TABLE `hesk_reply_drafts` (
   `owner` smallint(5) UNSIGNED NOT NULL,
   `ticket` mediumint(8) UNSIGNED NOT NULL,
   `message` mediumtext CHARACTER SET utf8 NOT NULL,
@@ -372,10 +372,10 @@ CREATE TABLE `helpdeskreply_drafts` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `helpdeskreset_password`
+-- Estrutura da tabela `hesk_reset_password`
 --
 
-CREATE TABLE `helpdeskreset_password` (
+CREATE TABLE `hesk_reset_password` (
   `id` mediumint(8) UNSIGNED NOT NULL,
   `user` smallint(5) UNSIGNED NOT NULL,
   `hash` char(40) NOT NULL,
@@ -386,10 +386,10 @@ CREATE TABLE `helpdeskreset_password` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `helpdeskservice_messages`
+-- Estrutura da tabela `hesk_service_messages`
 --
 
-CREATE TABLE `helpdeskservice_messages` (
+CREATE TABLE `hesk_service_messages` (
   `id` smallint(5) UNSIGNED NOT NULL,
   `dt` timestamp NOT NULL DEFAULT current_timestamp(),
   `author` smallint(5) UNSIGNED NOT NULL,
@@ -404,10 +404,10 @@ CREATE TABLE `helpdeskservice_messages` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `helpdeskstd_replies`
+-- Estrutura da tabela `hesk_std_replies`
 --
 
-CREATE TABLE `helpdeskstd_replies` (
+CREATE TABLE `hesk_std_replies` (
   `id` smallint(5) UNSIGNED NOT NULL,
   `title` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `message` mediumtext COLLATE utf8_unicode_ci NOT NULL,
@@ -418,10 +418,10 @@ CREATE TABLE `helpdeskstd_replies` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `helpdesktickets`
+-- Estrutura da tabela `hesk_tickets`
 --
 
-CREATE TABLE `helpdesktickets` (
+CREATE TABLE `hesk_tickets` (
   `id` mediumint(8) UNSIGNED NOT NULL,
   `trackid` varchar(13) COLLATE utf8_unicode_ci NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -511,10 +511,10 @@ CREATE TABLE `helpdesktickets` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `helpdeskticket_templates`
+-- Estrutura da tabela `hesk_ticket_templates`
 --
 
-CREATE TABLE `helpdeskticket_templates` (
+CREATE TABLE `hesk_ticket_templates` (
   `id` smallint(5) UNSIGNED NOT NULL,
   `title` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `message` mediumtext COLLATE utf8_unicode_ci NOT NULL,
@@ -525,10 +525,10 @@ CREATE TABLE `helpdeskticket_templates` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `helpdeskusers`
+-- Estrutura da tabela `hesk_users`
 --
 
-CREATE TABLE `helpdeskusers` (
+CREATE TABLE `hesk_users` (
   `id` smallint(5) UNSIGNED NOT NULL,
   `user` varchar(20) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `pass` char(40) COLLATE utf8_unicode_ci NOT NULL,
@@ -563,10 +563,10 @@ CREATE TABLE `helpdeskusers` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Extraindo dados da tabela `helpdeskusers`
+-- Extraindo dados da tabela `hesk_users`
 --
 
-INSERT INTO `helpdeskusers` (`id`, `user`, `pass`, `isadmin`, `name`, `email`, `signature`, `language`, `categories`, `afterreply`, `autostart`, `autoreload`, `notify_customer_new`, `notify_customer_reply`, `show_suggested`, `notify_new_unassigned`, `notify_new_my`, `notify_reply_unassigned`, `notify_reply_my`, `notify_assigned`, `notify_pm`, `notify_note`, `notify_overdue_unassigned`, `notify_overdue_my`, `default_list`, `autoassign`, `heskprivileges`, `ratingneg`, `ratingpos`, `rating`, `replies`) VALUES
+INSERT INTO `hesk_users` (`id`, `user`, `pass`, `isadmin`, `name`, `email`, `signature`, `language`, `categories`, `afterreply`, `autostart`, `autoreload`, `notify_customer_new`, `notify_customer_reply`, `show_suggested`, `notify_new_unassigned`, `notify_new_my`, `notify_reply_unassigned`, `notify_reply_my`, `notify_assigned`, `notify_pm`, `notify_note`, `notify_overdue_unassigned`, `notify_overdue_my`, `default_list`, `autoassign`, `heskprivileges`, `ratingneg`, `ratingpos`, `rating`, `replies`) VALUES
 (1, 'Vinicius', '4fc30b16548d02c287aaa75936a2b953efec231c', '1', 'Your name', 'you@example.com', '', NULL, '', '0', '1', 0, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '', '1', '', 0, 0, 0, 0);
 
 --
@@ -574,79 +574,79 @@ INSERT INTO `helpdeskusers` (`id`, `user`, `pass`, `isadmin`, `name`, `email`, `
 --
 
 --
--- Índices para tabela `helpdeskattachments`
+-- Índices para tabela `hesk_attachments`
 --
-ALTER TABLE `helpdeskattachments`
+ALTER TABLE `hesk_attachments`
   ADD PRIMARY KEY (`att_id`),
   ADD KEY `ticket_id` (`ticket_id`);
 
 --
--- Índices para tabela `helpdeskbanned_emails`
+-- Índices para tabela `hesk_banned_emails`
 --
-ALTER TABLE `helpdeskbanned_emails`
+ALTER TABLE `hesk_banned_emails`
   ADD PRIMARY KEY (`id`),
   ADD KEY `email` (`email`);
 
 --
--- Índices para tabela `helpdeskbanned_ips`
+-- Índices para tabela `hesk_banned_ips`
 --
-ALTER TABLE `helpdeskbanned_ips`
+ALTER TABLE `hesk_banned_ips`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `helpdeskcategories`
+-- Índices para tabela `hesk_categories`
 --
-ALTER TABLE `helpdeskcategories`
+ALTER TABLE `hesk_categories`
   ADD PRIMARY KEY (`id`),
   ADD KEY `type` (`type`);
 
 --
--- Índices para tabela `helpdeskcustom_fields`
+-- Índices para tabela `hesk_custom_fields`
 --
-ALTER TABLE `helpdeskcustom_fields`
+ALTER TABLE `hesk_custom_fields`
   ADD PRIMARY KEY (`id`),
   ADD KEY `useType` (`use`,`type`);
 
 --
--- Índices para tabela `helpdeskcustom_statuses`
+-- Índices para tabela `hesk_custom_statuses`
 --
-ALTER TABLE `helpdeskcustom_statuses`
+ALTER TABLE `hesk_custom_statuses`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `helpdeskkb_articles`
+-- Índices para tabela `hesk_kb_articles`
 --
-ALTER TABLE `helpdeskkb_articles`
+ALTER TABLE `hesk_kb_articles`
   ADD PRIMARY KEY (`id`),
   ADD KEY `catid` (`catid`),
   ADD KEY `sticky` (`sticky`),
   ADD KEY `type` (`type`);
-ALTER TABLE `helpdeskkb_articles` ADD FULLTEXT KEY `subject` (`subject`,`content`,`keywords`);
+ALTER TABLE `hesk_kb_articles` ADD FULLTEXT KEY `subject` (`subject`,`content`,`keywords`);
 
 --
--- Índices para tabela `helpdeskkb_attachments`
+-- Índices para tabela `hesk_kb_attachments`
 --
-ALTER TABLE `helpdeskkb_attachments`
+ALTER TABLE `hesk_kb_attachments`
   ADD PRIMARY KEY (`att_id`);
 
 --
--- Índices para tabela `helpdeskkb_categories`
+-- Índices para tabela `hesk_kb_categories`
 --
-ALTER TABLE `helpdeskkb_categories`
+ALTER TABLE `hesk_kb_categories`
   ADD PRIMARY KEY (`id`),
   ADD KEY `type` (`type`),
   ADD KEY `parent` (`parent`);
 
 --
--- Índices para tabela `helpdesklogins`
+-- Índices para tabela `hesk_logins`
 --
-ALTER TABLE `helpdesklogins`
+ALTER TABLE `hesk_logins`
   ADD UNIQUE KEY `ip` (`ip`);
 
 --
--- Índices para tabela `helpdesklog_overdue`
+-- Índices para tabela `hesk_log_overdue`
 --
-ALTER TABLE `helpdesklog_overdue`
+ALTER TABLE `hesk_log_overdue`
   ADD PRIMARY KEY (`id`),
   ADD KEY `ticket` (`ticket`),
   ADD KEY `category` (`category`),
@@ -655,73 +655,73 @@ ALTER TABLE `helpdesklog_overdue`
   ADD KEY `owner` (`owner`);
 
 --
--- Índices para tabela `helpdeskmail`
+-- Índices para tabela `hesk_mail`
 --
-ALTER TABLE `helpdeskmail`
+ALTER TABLE `hesk_mail`
   ADD PRIMARY KEY (`id`),
   ADD KEY `from` (`from`),
   ADD KEY `to` (`to`,`read`,`deletedby`);
 
 --
--- Índices para tabela `helpdesknotes`
+-- Índices para tabela `hesk_notes`
 --
-ALTER TABLE `helpdesknotes`
+ALTER TABLE `hesk_notes`
   ADD PRIMARY KEY (`id`),
   ADD KEY `ticketid` (`ticket`);
 
 --
--- Índices para tabela `helpdeskonline`
+-- Índices para tabela `hesk_online`
 --
-ALTER TABLE `helpdeskonline`
+ALTER TABLE `hesk_online`
   ADD UNIQUE KEY `user_id` (`user_id`),
   ADD KEY `dt` (`dt`);
 
 --
--- Índices para tabela `helpdeskpipe_loops`
+-- Índices para tabela `hesk_pipe_loops`
 --
-ALTER TABLE `helpdeskpipe_loops`
+ALTER TABLE `hesk_pipe_loops`
   ADD KEY `email` (`email`,`hits`);
 
 --
--- Índices para tabela `helpdeskreplies`
+-- Índices para tabela `hesk_replies`
 --
-ALTER TABLE `helpdeskreplies`
+ALTER TABLE `hesk_replies`
   ADD PRIMARY KEY (`id`),
   ADD KEY `replyto` (`replyto`),
   ADD KEY `dt` (`dt`),
   ADD KEY `staffid` (`staffid`);
 
 --
--- Índices para tabela `helpdeskreply_drafts`
+-- Índices para tabela `hesk_reply_drafts`
 --
-ALTER TABLE `helpdeskreply_drafts`
+ALTER TABLE `hesk_reply_drafts`
   ADD KEY `owner` (`owner`),
   ADD KEY `ticket` (`ticket`);
 
 --
--- Índices para tabela `helpdeskreset_password`
+-- Índices para tabela `hesk_reset_password`
 --
-ALTER TABLE `helpdeskreset_password`
+ALTER TABLE `hesk_reset_password`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user` (`user`);
 
 --
--- Índices para tabela `helpdeskservice_messages`
+-- Índices para tabela `hesk_service_messages`
 --
-ALTER TABLE `helpdeskservice_messages`
+ALTER TABLE `hesk_service_messages`
   ADD PRIMARY KEY (`id`),
   ADD KEY `type` (`type`);
 
 --
--- Índices para tabela `helpdeskstd_replies`
+-- Índices para tabela `hesk_std_replies`
 --
-ALTER TABLE `helpdeskstd_replies`
+ALTER TABLE `hesk_std_replies`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `helpdesktickets`
+-- Índices para tabela `hesk_tickets`
 --
-ALTER TABLE `helpdesktickets`
+ALTER TABLE `hesk_tickets`
   ADD PRIMARY KEY (`id`),
   ADD KEY `trackid` (`trackid`),
   ADD KEY `archive` (`archive`),
@@ -732,15 +732,15 @@ ALTER TABLE `helpdesktickets`
   ADD KEY `dt` (`dt`);
 
 --
--- Índices para tabela `helpdeskticket_templates`
+-- Índices para tabela `hesk_ticket_templates`
 --
-ALTER TABLE `helpdeskticket_templates`
+ALTER TABLE `hesk_ticket_templates`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `helpdeskusers`
+-- Índices para tabela `hesk_users`
 --
-ALTER TABLE `helpdeskusers`
+ALTER TABLE `hesk_users`
   ADD PRIMARY KEY (`id`),
   ADD KEY `autoassign` (`autoassign`);
 
@@ -749,105 +749,105 @@ ALTER TABLE `helpdeskusers`
 --
 
 --
--- AUTO_INCREMENT de tabela `helpdeskattachments`
+-- AUTO_INCREMENT de tabela `hesk_attachments`
 --
-ALTER TABLE `helpdeskattachments`
+ALTER TABLE `hesk_attachments`
   MODIFY `att_id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `helpdeskbanned_emails`
+-- AUTO_INCREMENT de tabela `hesk_banned_emails`
 --
-ALTER TABLE `helpdeskbanned_emails`
+ALTER TABLE `hesk_banned_emails`
   MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `helpdeskbanned_ips`
+-- AUTO_INCREMENT de tabela `hesk_banned_ips`
 --
-ALTER TABLE `helpdeskbanned_ips`
+ALTER TABLE `hesk_banned_ips`
   MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `helpdeskcategories`
+-- AUTO_INCREMENT de tabela `hesk_categories`
 --
-ALTER TABLE `helpdeskcategories`
+ALTER TABLE `hesk_categories`
   MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de tabela `helpdeskkb_articles`
+-- AUTO_INCREMENT de tabela `hesk_kb_articles`
 --
-ALTER TABLE `helpdeskkb_articles`
+ALTER TABLE `hesk_kb_articles`
   MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `helpdeskkb_attachments`
+-- AUTO_INCREMENT de tabela `hesk_kb_attachments`
 --
-ALTER TABLE `helpdeskkb_attachments`
+ALTER TABLE `hesk_kb_attachments`
   MODIFY `att_id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `helpdeskkb_categories`
+-- AUTO_INCREMENT de tabela `hesk_kb_categories`
 --
-ALTER TABLE `helpdeskkb_categories`
+ALTER TABLE `hesk_kb_categories`
   MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de tabela `helpdesklog_overdue`
+-- AUTO_INCREMENT de tabela `hesk_log_overdue`
 --
-ALTER TABLE `helpdesklog_overdue`
+ALTER TABLE `hesk_log_overdue`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `helpdeskmail`
+-- AUTO_INCREMENT de tabela `hesk_mail`
 --
-ALTER TABLE `helpdeskmail`
+ALTER TABLE `hesk_mail`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de tabela `helpdesknotes`
+-- AUTO_INCREMENT de tabela `hesk_notes`
 --
-ALTER TABLE `helpdesknotes`
+ALTER TABLE `hesk_notes`
   MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `helpdeskreplies`
+-- AUTO_INCREMENT de tabela `hesk_replies`
 --
-ALTER TABLE `helpdeskreplies`
+ALTER TABLE `hesk_replies`
   MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `helpdeskreset_password`
+-- AUTO_INCREMENT de tabela `hesk_reset_password`
 --
-ALTER TABLE `helpdeskreset_password`
+ALTER TABLE `hesk_reset_password`
   MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `helpdeskservice_messages`
+-- AUTO_INCREMENT de tabela `hesk_service_messages`
 --
-ALTER TABLE `helpdeskservice_messages`
+ALTER TABLE `hesk_service_messages`
   MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `helpdeskstd_replies`
+-- AUTO_INCREMENT de tabela `hesk_std_replies`
 --
-ALTER TABLE `helpdeskstd_replies`
+ALTER TABLE `hesk_std_replies`
   MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `helpdesktickets`
+-- AUTO_INCREMENT de tabela `hesk_tickets`
 --
-ALTER TABLE `helpdesktickets`
+ALTER TABLE `hesk_tickets`
   MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `helpdeskticket_templates`
+-- AUTO_INCREMENT de tabela `hesk_ticket_templates`
 --
-ALTER TABLE `helpdeskticket_templates`
+ALTER TABLE `hesk_ticket_templates`
   MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `helpdeskusers`
+-- AUTO_INCREMENT de tabela `hesk_users`
 --
-ALTER TABLE `helpdeskusers`
+ALTER TABLE `hesk_users`
   MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 

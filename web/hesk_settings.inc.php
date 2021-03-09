@@ -23,7 +23,7 @@ $hesk_settings['languages']=array(
 );
 
 // --> Database settings
-$hesk_settings['db_host']='localhost';
+$hesk_settings['db_host']='maria';
 $hesk_settings['db_name']='helpdesk';
 $hesk_settings['db_user']='root';
 $hesk_settings['db_pass']='';

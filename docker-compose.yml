@@ -5,6 +5,11 @@ version: '3'
 volumes:
   mysql-data:
 
+# Redes
+networks:
+  frontend:
+  backend:
+
 # Serviços
 services:
   # MariaDB
@@ -20,12 +25,16 @@ services:
       - ./maria/init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - 3306:3306
+    networks:
+      - backend
   
   # PHP
   php:
     build: './php/'
     volumes:
       - ./web:/web
+    networks:
+      - backend
   
   # Front-end
   front:
@@ -38,5 +47,8 @@ services:
       - ./web:/web
     ports:
       - 80:80
+    networks:
+      - frontend
+      - backend
     depends_on:
       - php
