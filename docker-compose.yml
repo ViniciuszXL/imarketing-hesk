@@ -16,7 +16,7 @@ services:
   maria:
     image: mariadb
     environment: 
-      - MYSQL_ALLOW_EMPTY_PASSWORD=true
+      - MYSQL_ROOT_PASSWORD=!M@rketingAlpDb
     volumes:
       # Volumes dos dados
       - mysql-data:/var/lib/mysql

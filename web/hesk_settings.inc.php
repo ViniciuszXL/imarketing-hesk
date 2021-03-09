@@ -26,7 +26,7 @@ $hesk_settings['languages']=array(
 $hesk_settings['db_host']='maria';
 $hesk_settings['db_name']='helpdesk';
 $hesk_settings['db_user']='root';
-$hesk_settings['db_pass']='';
+$hesk_settings['db_pass']='!M@rketingAlpDb';
 $hesk_settings['db_pfix']='hesk_';
 $hesk_settings['db_vrsn']=1;
 
