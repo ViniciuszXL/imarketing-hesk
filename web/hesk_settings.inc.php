@@ -7,7 +7,7 @@
 $hesk_settings['site_title']='iMarketing - Help Desk';
 $hesk_settings['site_url']='http://imarketing.digital';
 $hesk_settings['hesk_title']='iMarketing - Help Desk';
-$hesk_settings['hesk_url']='http://localhost/imarketing-hesk';
+$hesk_settings['hesk_url']='http://localhost';
 $hesk_settings['webmaster_mail']='support@example.com';
 $hesk_settings['noreply_mail']='support@example.com';
 $hesk_settings['noreply_name']='Help Desk';
@@ -23,7 +23,7 @@ $hesk_settings['languages']=array(
 );
 
 // --> Database settings
-$hesk_settings['db_host']='localhost';
+$hesk_settings['db_host']='maria';
 $hesk_settings['db_name']='helpdesk';
 $hesk_settings['db_user']='root';
 $hesk_settings['db_pass']='';

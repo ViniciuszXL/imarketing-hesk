@@ -119,16 +119,11 @@ function hesk_dbConnect()
     	die($hesklang['emp']);
     }
 
-	// Do we need a special port? Check and connect to the database
-	if ( strpos($hesk_settings['db_host'], ':') )
-	{
-		list($hesk_settings['db_host_no_port'], $hesk_settings['db_port']) = explode(':', $hesk_settings['db_host']);
-		$hesk_db_link = @mysqli_connect($hesk_settings['db_host_no_port'], $hesk_settings['db_user'], $hesk_settings['db_pass'], $hesk_settings['db_name'], intval($hesk_settings['db_port']) );
-	}
-	else
-	{
-		$hesk_db_link = @mysqli_connect($hesk_settings['db_host'], $hesk_settings['db_user'], $hesk_settings['db_pass'], $hesk_settings['db_name']);
-	}
+    $host = $hesk_settings['db_host'];
+    $user = $hesk_settings['db_user'];
+    $pass = $hesk_settings['db_pass'];
+    $database = $hesk_settings['db_name'];
+    $hesk_db_link = mysqli_connect($host, $user, $pass, $database);
 
 	// Errors?
     if ( ! $hesk_db_link)
@@ -141,6 +136,8 @@ function hesk_dbConnect()
         {
 			hesk_error("$hesklang[cant_connect_db]</p><p>$hesklang[contact_webmsater] <a href=\"mailto:$hesk_settings[webmaster_mail]\">$hesk_settings[webmaster_mail]</a></p>");
         }
+
+        print('Aqui!');
     }
 
     // Check MySQL/PHP version and set encoding to utf8
@@ -158,7 +155,7 @@ function hesk_dbClose()
 {
 	global $hesk_db_link;
 
-    return @mysqli_close($hesk_db_link);
+    return mysqli_close($hesk_db_link);
 
 } // END hesk_dbClose()
 
@@ -178,7 +175,7 @@ function hesk_dbQuery($query)
 
     # echo "<p>EXPLAIN $query</p>\n";
 
-    if ($res = @mysqli_query($hesk_db_link, $query))
+    if ($res = mysqli_query($hesk_db_link, $query))
     {
     	return $res;
     }
@@ -197,7 +194,7 @@ function hesk_dbQuery($query)
 function hesk_dbFetchAssoc($res)
 {
 
-    return @mysqli_fetch_assoc($res);
+    return mysqli_fetch_assoc($res);
 
 } // END hesk_FetchAssoc()
 
@@ -205,7 +202,7 @@ function hesk_dbFetchAssoc($res)
 function hesk_dbFetchRow($res)
 {
 
-    return @mysqli_fetch_row($res);
+    return mysqli_fetch_row($res);
 
 } // END hesk_FetchRow()
 
@@ -215,7 +212,7 @@ function hesk_dbResult($res, $row = 0, $column = 0)
 	$i=0;
 	$res->data_seek(0);
 
-	while ($tmp = @mysqli_fetch_array($res, MYSQLI_NUM))
+	while ($tmp = mysqli_fetch_array($res, MYSQLI_NUM))
     {
 		if ($i==$row)
         {
@@ -233,7 +230,7 @@ function hesk_dbInsertID()
 {
 	global $hesk_db_link;
 
-    if ($lastid = @mysqli_insert_id($hesk_db_link))
+    if ($lastid = mysqli_insert_id($hesk_db_link))
     {
         return $lastid;
     }
@@ -244,7 +241,7 @@ function hesk_dbInsertID()
 function hesk_dbFreeResult($res)
 {
 
-    return @mysqli_free_result($res);
+    return mysqli_free_result($res);
 
 } // END hesk_dbFreeResult()
 
@@ -252,7 +249,7 @@ function hesk_dbFreeResult($res)
 function hesk_dbNumRows($res)
 {
 
-    return @mysqli_num_rows($res);
+    return mysqli_num_rows($res);
 
 } // END hesk_dbNumRows()
 
@@ -261,6 +258,6 @@ function hesk_dbAffectedRows()
 {
 	global $hesk_db_link;
 
-    return @mysqli_affected_rows($hesk_db_link);
+    return mysqli_affected_rows($hesk_db_link);
 
 } // END hesk_dbAffectedRows()

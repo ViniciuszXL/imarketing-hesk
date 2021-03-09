@@ -7,8 +7,8 @@ volumes:
 
 # Redes
 networks:
-  banco:
-  web:
+  frontend:
+  backend:
 
 # Serviços
 services:
@@ -20,18 +20,21 @@ services:
     volumes:
       # Volumes dos dados
       - mysql-data:/var/lib/mysql
+      # Scripts
+      - ./maria:/maria-scripts
+      - ./maria/init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - 3306:3306
     networks:
-      - banco
+      - backend
   
   # PHP
   php:
-    image: php:7-fpm
+    build: './php/'
     volumes:
       - ./web:/web
     networks:
-      - web
+      - backend
   
   # Front-end
   front:
@@ -45,5 +48,7 @@ services:
     ports:
       - 80:80
     networks:
-      - web
-      - banco
+      - frontend
+      - backend
+    depends_on:
+      - php
