@@ -1,0 +1,25 @@
+COMANDOS
+
+NETWORK:
+
+docker network create --driver bridge imarketing_hesk
+
+MARIA:
+
+docker container run -d --network imarketing_hesk -p 3306:3306 -e MYSQL_ROOT_PASSWORD=!M@rketingAlpDb -v "mysql-data:/var/lib/mysql" -v "C:/Programation/imarketing-hesk/maria/init.sql:/docker-entrypoint-initdb.d/init.sql" --name imarketing_hesk_db mariadb
+
+docker container run -d --network imarketing_hesk -p 3306:3306 -e MYSQL_ROOT_PASSWORD=!M@rketingAlpDb -v "mysql-data:/var/lib/mysql" -v "root/imarketing-hesk/maria/init.sql:/docker-entrypoint-initdb.d/init.sql" --name imarketing_hesk_db mariadb
+
+PHP COMPOSE:
+
+Ir até a pasta do php: docker build -it php-imarketing-compose .
+
+docker container run -d --network imarketing_hesk -v "C:/Programation/imarketing-hesk/web:/var/www" --name imarketing_hesk_php php-imarketing-compose
+
+docker container run -d --network imarketing_hesk -v "/root/imarketing-hesk/web:/var/www" --name imarketing_hesk_php php-imarketing-compose
+
+NGINX:
+
+docker container run -d --network imarketing_hesk -p 80:80 -v "C:/Programation/imarketing-hesk/nginx/default.conf:/etc/nginx/conf.d/default.conf" -v "C:/Programation/imarketing-hesk/web:/var/www" --name imarketing_hesk_nginx nginx
+
+docker container run -d --network imarketing_hesk -p 80:80 -v "/root/imarketing-hesk/nginx/default.conf:/etc/nginx/conf.d/default.conf" -v "/root/imarketing-hesk/web:/var/www" --name imarketing_hesk_nginx nginx
