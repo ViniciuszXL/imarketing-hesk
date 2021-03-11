@@ -136,8 +136,6 @@ function hesk_dbConnect()
         {
 			hesk_error("$hesklang[cant_connect_db]</p><p>$hesklang[contact_webmsater] <a href=\"mailto:$hesk_settings[webmaster_mail]\">$hesk_settings[webmaster_mail]</a></p>");
         }
-
-        print('Aqui!');
     }
 
     // Check MySQL/PHP version and set encoding to utf8
