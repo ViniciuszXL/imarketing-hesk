@@ -68,10 +68,8 @@ function hesk_uploadFile($i)
 		return hesk_fileError($hesklang['fnuscphp']);
     }
 
-	echo dirname(dirname(__FILE__)).'/'.$hesk_settings['attach_dir'].'/'.$file_name);
-
 	/* If upload was successful let's create the headers */
-	if ( ! move_uploaded_file($_FILES['attachment']['tmp_name'][$i], dirname(dirname(__FILE__)).'/'.$hesk_settings['attach_dir'].'/'.$file_name))
+	if ( ! move_uploaded_file($_FILES['attachment']['tmp_name'][$i], '/var/www/'.$hesk_settings['attach_dir'].'/'.$file_name))
 	{
 	    return hesk_fileError($hesklang['cannot_move_tmp']);
 	}
@@ -101,7 +99,7 @@ function hesk_removeAttachments($attachments)
 {
 	global $hesk_settings, $hesklang;
 
-	$hesk_settings['server_path'] = dirname(dirname(__FILE__)).'/'.$hesk_settings['attach_dir'].'/';
+	$hesk_settings['server_path'] = '/var/www/'.$hesk_settings['attach_dir'].'/';
 
 	foreach ($attachments as $myatt)
 	{
