@@ -1,7 +1,7 @@
 <?php
 
     $filename = '/var/www/oie.txt';
-    $destination = '/var/www/teste/other_folder/';
+    $destination = '/var/www/teste/other_folder/oie.txt';
 
     if (file_exists($filename)) {
         echo 'File exists! - ';
