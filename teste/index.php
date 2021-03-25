@@ -3,6 +3,9 @@
     $filename = '/var/www/oie.txt';
     $destination = '/var/www/html/oie.txt';
 
+    chmod($filename, 777);
+    chmod($destination, 777);
+
     if (file_exists($filename)) {
         echo 'File exists! - ';
     } else {
