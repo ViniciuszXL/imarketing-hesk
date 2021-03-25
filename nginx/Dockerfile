@@ -1,7 +1,7 @@
 FROM nginx
 
-COPY /root/imarketing-hesk/nginx/default.conf:/etc/nginx/conf.d/default.conf
-COPY /root/imarketing-hesk/web:/var/www
+COPY /root/imarketing-hesk/nginx/default.conf /etc/nginx/conf.d/default.conf
+COPY /root/imarketing-hesk/web /var/www
 
 RUN chmod -R 777 /tmp
 RUN chmod -R 777 /var/www
