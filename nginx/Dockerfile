@@ -1,7 +1,7 @@
-FROM php:7.2.7-fpm-alpine3.7
-RUN apk update; \
-    apk upgrade;
-RUN docker-php-ext-install mysqli
+FROM nginx
+
+COPY /root/imarketing-hesk/nginx/default.conf:/etc/nginx/conf.d/default.conf
+COPY /root/imarketing-hesk/web:/var/www
 
 RUN chmod -R 777 /tmp
 RUN chmod -R 777 /var/www
@@ -18,3 +18,5 @@ RUN chmod -R 777 /var/www/inc
 RUN chmod -R 777 /var/www/js
 RUN chmod -R 777 /var/www/language
 RUN chmod -R 777 /var/www/theme
+
+EXPOSE 80
