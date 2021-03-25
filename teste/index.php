@@ -1,18 +1,12 @@
 <?php
 
     $filename = '/var/www/oie.txt';
-    $destination = '/var/www/teste/html/oie.txt';
+    $destination = '/var/www/html/oie.txt';
 
     if (file_exists($filename)) {
         echo 'File exists! - ';
     } else {
         echo 'File not exists! - ';
-    }
-
-    if (file_exists($destination)) {
-        echo 'File in destination exists - ';
-    } else {
-        echo 'File in destination not exists! Creating... - ';
     }
 
     echo 'Filename is ' . $filename . ' - ';
