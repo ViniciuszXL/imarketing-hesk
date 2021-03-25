@@ -10,10 +10,9 @@
     }
 
     if (file_exists($destination)) {
-        echo 'File in destination exists - '
+        echo 'File in destination exists - ';
     } else {
         echo 'File in destination not exists! Creating... - ';
-
     }
 
     echo 'Filename is ' . $filename . ' - ';
