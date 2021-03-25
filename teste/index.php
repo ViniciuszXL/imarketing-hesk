@@ -1,10 +1,16 @@
 <?php
 
     $filename = '/var/www/oie.txt';
-    $destination = '/var/www/teste/other_folder';
+    $destination = '/var/www/teste/other_folder/';
 
-    echo 'Filename is ' . $filename . '\n';
-    echo 'Destination is ' . $destination . '\n';
+    if (file_exists($filename)) {
+        echo 'File exists! - ';
+    } else {
+        echo 'File not exists! - ';
+    }
+
+    echo 'Filename is ' . $filename . ' - ';
+    echo 'Destination is ' . $destination . ' - ';
 
     if (move_uploaded_file($filename, $destination)) {
         echo 'Successfully moved oie.txt to other_folder!';
