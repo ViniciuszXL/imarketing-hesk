@@ -63,16 +63,13 @@ function hesk_uploadFile($i)
 
     // Does the temporary file exist? If not, probably server-side configuration limits have been reached
     // Uncomment this for debugging purposes
-    /*
     if ( ! file_exists($_FILES['attachment']['tmp_name'][$i]) )
     {
 		return hesk_fileError($hesklang['fnuscphp']);
     }
-    */
 
-
-	print($_FILES['attachment']['tmp_name'][$i]);
-	print(dirname(dirname(__FILE__)).'/'.$hesk_settings['attach_dir'].'/'.$file_name));
+	echo 'Oie!';
+	echo $_FILES['attachment']['tmp_name'][$i];
 
 	/* If upload was successful let's create the headers */
 	if ( ! move_uploaded_file($_FILES['attachment']['tmp_name'][$i], dirname(dirname(__FILE__)).'/'.$hesk_settings['attach_dir'].'/'.$file_name))
